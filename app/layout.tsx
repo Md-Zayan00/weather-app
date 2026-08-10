@@ -1,5 +1,14 @@
+//imports
+import { Comfortaa } from "next/font/google"
 import type { Metadata } from "next";
 import "./globals.css";
+
+//add google font
+const comfortaa = Comfortaa({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-comfortaa",
+});
 
 export const metadata: Metadata = {
   title: "Weather App",
@@ -10,9 +19,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      className={`${comfortaa.variable}`}
     >
       <body
-      className="bg-slate-950 text-white" 
+      className="bg-[url(/images/background-clouds.jpg)] font-comfortaa font-extrabold text-white bg-no-repeat bg-center min-h-screen bg-cover" 
       >{children}</body>
     </html>
   );
