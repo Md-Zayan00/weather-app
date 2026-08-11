@@ -10,6 +10,11 @@ import { IoWaterOutline } from "react-icons/io5"
 import { FaSun } from "react-icons/fa"
 import { GiHotSurface } from "react-icons/gi"
 import WeatherGraph from "./components/weatherGraph"
+import tzlookup from "tz-lookup"
+import DateTime from "./components/dateTime"
+import { WeatherData } from "./components/weatherData"
+import { WeatherInterface } from "./components/weatherData"
+import { FaMoon } from "react-icons/fa"
 
 
 //export function as a default to be rendered
@@ -18,10 +23,28 @@ export default function Home():JSX.Element {
   //set states for the coordinates
   const [lat, setLat] = useState<number>(0)
   const [long, setLong] = useState<number>(0)
+  const [currentTime, setCurrentTime] = useState<string[]>([])
+  const [weather, setWeather] = useState<WeatherInterface | null>(null)
 
   //Declare function for search button
-  function handleSubmit(event: React.SubmitEvent<HTMLFormElement>): void{
+  async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>): Promise<void>{
     event.preventDefault()
+    setCurrentTime (getTimeStamp(lat, long))
+    const data = await WeatherData(lat,long)
+    setWeather(data)
+  }
+
+  //Declare function to fetch local time of a given coordinate
+  function getTimeStamp(lat: number, long: number): string[]{
+    const timeZoneId = tzlookup(lat,long)
+
+    const formatter = new Intl.DateTimeFormat([], {
+    timeZone: timeZoneId,
+    dateStyle: 'medium',
+    timeStyle: 'medium'
+  })
+    const timeArr = formatter.format(new Date()).split(",") 
+    return timeArr
   }
 
   //Return the jsx element
@@ -48,32 +71,38 @@ export default function Home():JSX.Element {
         </form>
         <section className="text-left mx-12 mt-10 flex justify-between">
           <div>
-            <h1 className="text-6xl">23°</h1>
-            <p>Party Sunny</p>
-            <p>Feels like 20°</p>
+            <h1 className="text-6xl">{weather?.current.temperature_2m}</h1>
+            <p></p>
+            <p>Feels like {weather?.current.apparent_temperature}{weather?.current_units.apparent_temperature}</p>
           </div>
           <h1 className="text-8xl">☁️</h1>
         </section>
-        <div className="mt-7">
-          <h1 className="text-7xl">15:00</h1>
-          <p>2026-08-10</p>
-        </div>
+        <DateTime 
+        timeStamp = {currentTime[1]}
+        currentDate={currentTime[0]}
+        />
         <div className="flex justify-evenly mt-4">
             <span className="flex gap-1">
               <FaWind className="mt-1" aria-hidden='true'/>
-              <p>11 km/hr</p>
+              <p>{weather?.current.wind_speed_10m} {weather?.current_units.wind_speed_10m}</p>
             </span>
             <span className="flex gap-1">
               <IoWaterOutline className="mt-1" aria-hidden='true'/>
-              <p>02 %</p>
+              <p>{weather?.current.relative_humidity_2m} {weather?.current_units.relative_humidity_2m}</p>
             </span>
+            { weather?.current.is_day === 1 ? 
             <span className="flex gap-1">
               <FaSun className="mt-1" aria-hidden='true'/>
               <p>Day</p>
+            </span> : weather !== null &&
+            <span className="flex gap-1">
+              <FaMoon className="mt-1" aria-hidden='true'/>
+              <p>Night</p>
             </span>
+            } 
             <span className="flex gap-1">
               <GiHotSurface className="mt-1" aria-hidden='true'/>
-              <p>767 mm</p>
+              <p>{weather?.current.surface_pressure} {weather?.current_units.surface_pressure}</p>
             </span>
           </div>
           <WeatherGraph />
