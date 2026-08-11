@@ -9,6 +9,7 @@ import { FaWind } from "react-icons/fa"
 import { IoWaterOutline } from "react-icons/io5"
 import { FaSun } from "react-icons/fa"
 import { GiHotSurface } from "react-icons/gi"
+import WeatherGraph from "./components/weatherGraph"
 
 
 //export function as a default to be rendered
@@ -30,7 +31,7 @@ export default function Home():JSX.Element {
       className="text-center mx-auto"
       >
         <div className="flex justify-center mt-4 gap-1 text-sm">
-          <MdOutlineShareLocation className="text-xl"/>
+          <MdOutlineShareLocation className="text-xl" aria-hidden='true'/>
         <p className=" m-0 p-0">Enter Coordinates</p>
         </div>
         <form onSubmit={handleSubmit} className="mt-3 flex gap-x-1 mx-auto justify-center">
@@ -45,10 +46,13 @@ export default function Home():JSX.Element {
             <FaSearch aria-hidden='true' />
             </button>
         </form>
-        <section className="text-left ml-12 mt-10">
-          <h1 className="text-6xl">23°</h1>
-          <p>Party Sunny</p>
-          <p>Feels like 20°</p>
+        <section className="text-left mx-12 mt-10 flex justify-between">
+          <div>
+            <h1 className="text-6xl">23°</h1>
+            <p>Party Sunny</p>
+            <p>Feels like 20°</p>
+          </div>
+          <h1 className="text-8xl">☁️</h1>
         </section>
         <div className="mt-7">
           <h1 className="text-7xl">15:00</h1>
@@ -56,22 +60,23 @@ export default function Home():JSX.Element {
         </div>
         <div className="flex justify-evenly mt-4">
             <span className="flex gap-1">
-              <FaWind className="mt-1"/>
+              <FaWind className="mt-1" aria-hidden='true'/>
               <p>11 km/hr</p>
             </span>
             <span className="flex gap-1">
-              <IoWaterOutline className="mt-1"/>
+              <IoWaterOutline className="mt-1" aria-hidden='true'/>
               <p>02 %</p>
             </span>
             <span className="flex gap-1">
-              <FaSun className="mt-1"/>
+              <FaSun className="mt-1" aria-hidden='true'/>
               <p>Day</p>
             </span>
             <span className="flex gap-1">
-              <GiHotSurface className="mt-1"/>
+              <GiHotSurface className="mt-1" aria-hidden='true'/>
               <p>767 mm</p>
             </span>
           </div>
+          <WeatherGraph />
       </section>
     </main>
   )
