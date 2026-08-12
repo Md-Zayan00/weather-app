@@ -1,6 +1,6 @@
 'use client'
 
-//imports
+//import the icons, types, and functions 
 import { JSX } from "react"
 import { useState } from "react"
 import { FaSearch } from "react-icons/fa"
@@ -15,7 +15,7 @@ import { WeatherData } from "./components/weatherData"
 import { WeatherInterface } from "./components/weatherData"
 import { FaMoon } from "react-icons/fa"
 import { getWeatherDescription } from "./utils/weatherCodes"
-
+import { WeatherInfo } from "./utils/weatherCodes"
 
 //export function as a default to be rendered
 export default function Home():JSX.Element {
@@ -23,25 +23,40 @@ export default function Home():JSX.Element {
   //set states for the coordinates
   const [lat, setLat] = useState<number>(0)
   const [long, setLong] = useState<number>(0)
+
+  //set states for displaying the time, weather and statement
   const [currentTime, setCurrentTime] = useState<string[]>([])
   const [weather, setWeather] = useState<WeatherInterface | null>(null)
-  const [statement, setStatement] = useState("")
+  const [statement, setStatement] = useState<WeatherInfo>()
+  const [hourlyTemp, setHourlyTemp] = useState<number[] | undefined>()
+  const [hourlyPrec, setHourlyPrec] = useState<number[] | undefined>()
 
   //Declare function for search button
   async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>): Promise<void>{
+    
+    //Prevent the browser from reloading the page
     event.preventDefault()
+
+    //Fetch the data from WeatherData function and store it
     const data = await WeatherData(lat,long)
+
+    //Set all the states
     setWeather(data)
     setCurrentTime (getTimeStamp(data?.current.time))
     setStatement (getWeatherDescription(data?.current.weather_code))
+    setHourlyTemp(data?.hourly.temperature_2m.slice(168))
+    setHourlyPrec(data?.hourly.precipitation_probability.slice(168))
   }
 
   //Declare function to fetch local time of a given coordinate
   function getTimeStamp(clock: string | undefined): string[]{
 
+    //If the clock provided is not defined return an empty array
     if(!clock){
       return []
     }
+
+    //Otherwise split the datetime to date and time then return
     const timeArr = clock.split("T")
     return timeArr
   }
@@ -71,10 +86,12 @@ export default function Home():JSX.Element {
         <section className="text-left mx-12 mt-10 flex justify-between">
           <div>
             <h1 className="text-6xl">{weather?.current.temperature_2m}°</h1>
-            <p>{statement.slice(0,-2)}</p>
+            <p>{statement?.label}</p>
             <p>Feels like {weather?.current.apparent_temperature}{weather?.current_units.apparent_temperature}</p>
           </div>
-          <h1 className="text-9xl">{statement.slice(-2,-1)}</h1>
+          {statement && (
+          <statement.Icon className="text-8xl text-white" aria-hidden="true" />
+        )}
         </section>
         <DateTime 
         timeStamp = {currentTime[1]}
@@ -104,7 +121,10 @@ export default function Home():JSX.Element {
               <p>{weather?.current.surface_pressure} {weather?.current_units.surface_pressure}</p>
             </span>
           </div>
-          <WeatherGraph />
+          {hourlyTemp && hourlyPrec && <WeatherGraph 
+          temp = {hourlyTemp}
+          prec = {hourlyPrec}
+          />}
       </section>
     </main>
   )

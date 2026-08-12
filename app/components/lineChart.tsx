@@ -1,6 +1,6 @@
 'use client'
 
-//imports
+//import the jsx type and line chart
 import { JSX } from 'react'
 import {
   LineChart,
@@ -11,72 +11,101 @@ import {
   ResponsiveContainer,
 } from "recharts"
 
-//Data
-const data = [
-  { time: "3 AM", emoji: "☀️", temp: -3, rainProb: 10 },
-  { time: "4 AM", emoji: "🌤️", temp: -2, rainProb: 13 },
-  { time: "5 AM", emoji: "🌇", temp: -3, rainProb: 20 },
-  { time: "6 AM", emoji: "🌅", temp: -4, rainProb: 21 },
-  { time: "7 AM", emoji: "🌃", temp: -4, rainProb: 30 },
-  { time: "8 AM", emoji: "🌙", temp: -5, rainProb: 30 },
-]
+//Import the IconType for typescript and all the icons
+import { IconType } from "react-icons";
+import { 
+  FaMoon, 
+  FaSun, 
+  FaCloudSun, 
+  FaCloudMoon, 
+  FaCloudRain 
+} from "react-icons/fa"
 
-//creating a custom x axis tick
-const CustomXAxisTopTick = (props: any):JSX.Element => {
+//Export the default interface for the Hourly Forecast
+export interface HourlyForecast {
+  time: string
+  Icon: IconType
+  temp: number
+  rainProb: number
+}
+
+interface LineChartProps{
+  newData: HourlyForecast[]
+}
+
+
+//export the default function to return the graph
+export default function LineChartComponent({newData} : LineChartProps):JSX.Element {
+  
+  const hourlyData = newData
+
+  //creating a custom x axis tick
+const CustomXAxisTopTick = (propsA: any):JSX.Element => {
   // x and y are the exact coordinates provided by Recharts for each tick
   // payload contains the data row for that specific tick
-  const { x, y, payload } = props
+  const { x, y, payload } = propsA
   
   // Find the full data object matching the current tick value
-  const currentItem = data[payload.index]
+  const currentItem = hourlyData[payload.index]
 
   return (
-    // textAnchor="middle" perfectly centers both lines underneath the data point
-    <text x={x} y={y} dy={16} textAnchor="middle" fill="#666" fontSize={14}>
-
-      <tspan x={x} dy="0">{payload.value}</tspan>
+    <g transform={`translate(${x}, ${y})`}>
+      {/* Time Text */}
+      <text x={0} y={16} textAnchor="middle" fill="#ffffff" fontSize={14}>
+        {payload.value}
+      </text>
       
-      <tspan x={x} dy="28" fontSize={24}>{currentItem?.emoji}</tspan>
+      {/* Icon Frame - Centered horizontally by offsetting half its width (e.g., -12 for 24px width) */}
+      <foreignObject x={-12} y={26} width={24} height={24}>
+        <div style={{ color: '#ffffff', display: 'flex', justifyContent: 'center' }}>
+          <currentItem.Icon size={24} />
+        </div>
+      </foreignObject>
 
-      <tspan x={x} dy="28" fontSize={20}>{currentItem.temp}°</tspan>
-    </text>
+      {/* Temperature Text */}
+      <text x={0} y={68} textAnchor="middle" fill="#ffffff" fontSize={16}>
+        {currentItem.temp}°
+      </text>
+    </g>
   )
 }
 
-const CustomXAxisBottomTick = (props: any):JSX.Element => {
-    const {x, y, payload} = props
-    const currentItem = data[payload.index]
+//creating a custom bottom tick for the x axis
+const CustomXAxisBottomTick = (propsB: any):JSX.Element => {
+    const {x, y, payload} = propsB
+    const currentItem = hourlyData[payload.index]
 
     return(
 
-        <text x={x} y={y} dy={16} textAnchor='middle' fill='#666' fontSize={14}>
+        <text x={x} y={y} dy={16} textAnchor='middle' fill='#ffffff' fontSize={14}>
             <tspan x={x} dy="15">☔︎︎ {currentItem.rainProb}%</tspan>
         </text>
     )
 }
-
-//export
-export default function LineChartComponent():JSX.Element {
+  
   return (
-    <div style={{ width: "100%", height: 175 }}>
+    <div style={{ minWidth: "1500px", height: 175 }}>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          data={data}
-          margin={{ top: 60, right: 30, left: 30, bottom: 15 }}
+          data={newData}
+          margin={{ top: 50, right: 30, left: 30, bottom: 15 }}
         >
           <XAxis 
           xAxisId='TopAxis'
           dataKey="time"
            orientation='top' 
            tick={<CustomXAxisTopTick />} 
-           tickMargin={60} />
+           tickMargin={60}
+           interval={0} />
            <XAxis 
            xAxisId='BottomAxis'
            dataKey='time'
            orientation='bottom'
            tick={<CustomXAxisBottomTick />}
+           interval={0}
            />
-          <YAxis hide={true}/>
+          <YAxis domain={['dataMin - 2','dataMax + 2']}
+          hide={true}/>
 
           <Tooltip />
 
