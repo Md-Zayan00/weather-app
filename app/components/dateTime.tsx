@@ -1,5 +1,4 @@
 //imports
-import { timeStamp } from 'console'
 import { JSX } from 'react'
 
 interface Time {

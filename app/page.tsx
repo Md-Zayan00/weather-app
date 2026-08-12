@@ -10,11 +10,11 @@ import { IoWaterOutline } from "react-icons/io5"
 import { FaSun } from "react-icons/fa"
 import { GiHotSurface } from "react-icons/gi"
 import WeatherGraph from "./components/weatherGraph"
-import tzlookup from "tz-lookup"
 import DateTime from "./components/dateTime"
 import { WeatherData } from "./components/weatherData"
 import { WeatherInterface } from "./components/weatherData"
 import { FaMoon } from "react-icons/fa"
+import { getWeatherDescription } from "./utils/weatherCodes"
 
 
 //export function as a default to be rendered
@@ -25,25 +25,24 @@ export default function Home():JSX.Element {
   const [long, setLong] = useState<number>(0)
   const [currentTime, setCurrentTime] = useState<string[]>([])
   const [weather, setWeather] = useState<WeatherInterface | null>(null)
+  const [statement, setStatement] = useState("")
 
   //Declare function for search button
   async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>): Promise<void>{
     event.preventDefault()
-    setCurrentTime (getTimeStamp(lat, long))
     const data = await WeatherData(lat,long)
     setWeather(data)
+    setCurrentTime (getTimeStamp(data?.current.time))
+    setStatement (getWeatherDescription(data?.current.weather_code))
   }
 
   //Declare function to fetch local time of a given coordinate
-  function getTimeStamp(lat: number, long: number): string[]{
-    const timeZoneId = tzlookup(lat,long)
+  function getTimeStamp(clock: string | undefined): string[]{
 
-    const formatter = new Intl.DateTimeFormat([], {
-    timeZone: timeZoneId,
-    dateStyle: 'medium',
-    timeStyle: 'medium'
-  })
-    const timeArr = formatter.format(new Date()).split(",") 
+    if(!clock){
+      return []
+    }
+    const timeArr = clock.split("T")
     return timeArr
   }
 
@@ -71,11 +70,11 @@ export default function Home():JSX.Element {
         </form>
         <section className="text-left mx-12 mt-10 flex justify-between">
           <div>
-            <h1 className="text-6xl">{weather?.current.temperature_2m}</h1>
-            <p></p>
+            <h1 className="text-6xl">{weather?.current.temperature_2m}°</h1>
+            <p>{statement.slice(0,-2)}</p>
             <p>Feels like {weather?.current.apparent_temperature}{weather?.current_units.apparent_temperature}</p>
           </div>
-          <h1 className="text-8xl">☁️</h1>
+          <h1 className="text-9xl">{statement.slice(-2,-1)}</h1>
         </section>
         <DateTime 
         timeStamp = {currentTime[1]}
