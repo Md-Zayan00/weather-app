@@ -12,7 +12,7 @@ export default function DateTime(props: Time):JSX.Element{
     
     //Return the jsx element
     return (
-        <div className="mt-7">
+        <div className="mt-7 mx-auto">
           <h1 className="text-7xl">{props.timeStamp}</h1>
           <p>{props.currentDate}</p>
         </div>
