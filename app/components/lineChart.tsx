@@ -12,14 +12,7 @@ import {
 } from "recharts"
 
 //Import the IconType for typescript and all the icons
-import { IconType } from "react-icons";
-import { 
-  FaMoon, 
-  FaSun, 
-  FaCloudSun, 
-  FaCloudMoon, 
-  FaCloudRain 
-} from "react-icons/fa"
+import { IconType } from "react-icons"
 
 //Export the default interface for the Hourly Forecast
 export interface HourlyForecast {
@@ -51,19 +44,19 @@ const CustomXAxisTopTick = (propsA: any):JSX.Element => {
   return (
     <g transform={`translate(${x}, ${y})`}>
       {/* Time Text */}
-      <text x={0} y={16} textAnchor="middle" fill="#ffffff" fontSize={14}>
+      <text x={0} dy={8} textAnchor="middle" fill="#ffffff" fontSize={14}>
         {payload.value}
       </text>
       
       {/* Icon Frame - Centered horizontally by offsetting half its width (e.g., -12 for 24px width) */}
-      <foreignObject x={-12} y={26} width={24} height={24}>
+      <foreignObject x={-12} y={16} width={24} height={24}>
         <div style={{ color: '#ffffff', display: 'flex', justifyContent: 'center' }}>
           <currentItem.Icon size={24} />
         </div>
       </foreignObject>
 
       {/* Temperature Text */}
-      <text x={0} y={68} textAnchor="middle" fill="#ffffff" fontSize={16}>
+      <text x={0} dy={58} textAnchor="middle" fill="#ffffff" fontSize={16}>
         {currentItem.temp}°
       </text>
     </g>
@@ -84,7 +77,7 @@ const CustomXAxisBottomTick = (propsB: any):JSX.Element => {
 }
   
   return (
-    <div style={{ minWidth: "1500px", height: 175 }}>
+    <div style={{ minWidth: "1500px", height: 200 }}>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={newData}
