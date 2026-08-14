@@ -23,9 +23,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${comfortaa.variable}`}
     >
+      <head><meta name="viewport" content="width=device-width, initial-scale=1.0" /></head>
       <body
-      className="bg-[url(/images/background-clouds.jpg)] font-comfortaa font-extrabold text-white bg-no-repeat bg-center min-h-screen bg-cover" 
-      >{children}</body>
+      className="relative bg-[url(/images/background-clouds.jpg)] font-comfortaa font-extrabold text-white bg-no-repeat bg-center min-h-screen bg-cover" >
+      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="relative z-10 h-full">
+        {children}
+      </div>
+      </body>
     </html>
   );
 }
