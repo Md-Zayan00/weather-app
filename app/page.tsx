@@ -19,6 +19,7 @@ import { WeatherInfo } from "./utils/weatherCodes"
 import LoadingPulse from "./components/loading"
 import WeekReport from "./components/weekReport"
 import { DailyInterface } from "./components/weekReport"
+import Comments from "./components/comments"
 
 //export function as a default to be rendered
 export default function Home():JSX.Element {
@@ -35,6 +36,7 @@ export default function Home():JSX.Element {
   const [hourlyPrec, setHourlyPrec] = useState<number[] | undefined>()
   const [loading, setLoading] = useState<boolean>(false)
   const [dailyTemp, setDailyTemp] = useState<DailyInterface | undefined>()
+  const [isTempUp, setIsTempUp] = useState<boolean>(false)
 
 
   //Declare function for search button
@@ -56,6 +58,18 @@ export default function Home():JSX.Element {
     setHourlyTemp(data?.hourly.temperature_2m.slice(168))
     setHourlyPrec(data?.hourly.precipitation_probability.slice(168))
     setDailyTemp(data?.daily)
+
+    const tempArr = data?.daily.temperature_2m_mean
+
+    if( tempArr && tempArr.length >= 2){
+      const latestTemp = tempArr.at(-1)
+      const prevTemp = tempArr.at(-2)
+      if(latestTemp !== undefined && prevTemp !== undefined){
+      const boolTemp: boolean = latestTemp > prevTemp
+      setIsTempUp(boolTemp) 
+      }
+    }
+
 
     setLoading(false)
   }
@@ -176,6 +190,10 @@ export default function Home():JSX.Element {
           />
         </div>
       )}
+
+      {weather && <Comments
+      incTemp = {isTempUp}
+       />}
 
       {dailyTemp && <div className="bg-black/40 rounded-xl mt-6 md:mt-8 p-2 md:p-6 border border-white/5">
         <WeekReport
