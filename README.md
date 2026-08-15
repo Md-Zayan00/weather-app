@@ -1,5 +1,13 @@
 # Weather App
 
+![Next.js](https://img.shields.io/badge/Next.js-16.3.0-000000?logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-19.2.8-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-06B6D4?logo=tailwindcss&logoColor=white)
+![Tauri](https://img.shields.io/badge/Tauri-v2.11.4-FFC131?logo=tauri&logoColor=black)
+![Recharts](https://img.shields.io/badge/Recharts-3.10.1-22B5BF)
+![Open-Meteo](https://img.shields.io/badge/API-Open--Meteo-FF7E36)
+
 A weather application built with Next.js (App Router), React, TypeScript, Tailwind CSS, Recharts, and Tauri v2. The application retrieves meteorological data from the Open-Meteo API using latitude and longitude coordinates and displays real-time weather metrics, hourly temperature curves, and precipitation probabilities.
 
 ## Features
