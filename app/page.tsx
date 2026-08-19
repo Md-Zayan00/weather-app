@@ -125,7 +125,7 @@ export default function Home():JSX.Element {
       {loading && <LoadingPulse />}
 
       {/* Primary Weather & Date Split Section */}
-      <div className="mt-8 md:mt-12 md:flex md:items-center md:justify-between md:gap-8 bg-black/20 md:bg-black/30 rounded-2xl p-6 md:p-8 backdrop-blur-sm border border-white/5">
+      <div className="mt-8 md:mt-12 md:flex md:items-center md:justify-between md:gap-8 bg-slate-800/20 md:bg-slate-800/30 rounded-2xl p-6 md:p-8 backdrop-blur-sm border border-white/5">
         {weather && (
           <section className="text-left flex justify-between items-center md:flex-row-reverse md:gap-6 w-full md:w-auto">
             <div>
@@ -151,31 +151,31 @@ export default function Home():JSX.Element {
 
       {/* Secondary Metrics Bar */}
       {weather && (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 bg-black/30 rounded-xl p-4 md:p-6 border border-white/5 backdrop-blur-sm text-sm md:text-base">
-          <span className="flex items-center justify-center gap-2 md:gap-3 p-2">
-            <FaWind className="text-lg md:text-xl text-gray-300" aria-hidden="true" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 bg-slate-800/30 rounded-xl p-4 md:p-6 border border-white/5 backdrop-blur-sm text-sm md:text-base">
+          <span className="flex items-center justify-center gap-2 md:gap-3 p-2 text-blue-600 bg-blue-100/80 dark:text-blue-300 dark:bg-blue-900/40 rounded-full border border-blue-200/40 dark:border-blue-700/30">
+            <FaWind className="text-lg md:text-xl text-blue-500 dark:text-blue-400" aria-hidden="true" />
             <p className="m-0 font-medium">{weather?.current.wind_speed_10m} {weather?.current_units.wind_speed_10m}</p>
           </span>
 
-          <span className="flex items-center justify-center gap-2 md:gap-3 p-2">
-            <IoWaterOutline className="text-lg md:text-xl text-gray-300" aria-hidden="true" />
+          <span className="flex items-center justify-center gap-2 md:gap-3 p-2 text-blue-600 bg-blue-100/80 dark:text-blue-300 dark:bg-blue-900/40 rounded-full border border-blue-200/40 dark:border-blue-700/30">
+            <IoWaterOutline className="text-lg md:text-xl text-blue-500 dark:text-blue-400" aria-hidden="true" />
             <p className="m-0 font-medium">{weather?.current.relative_humidity_2m} {weather?.current_units.relative_humidity_2m}</p>
           </span>
 
           {weather?.current.is_day === 1 ? (
-            <span className="flex items-center justify-center gap-2 md:gap-3 p-2">
+            <span className="flex items-center justify-center gap-2 md:gap-3 p-2 text-blue-600 bg-blue-100/80 dark:text-blue-300 dark:bg-blue-900/40 rounded-full border border-blue-200/40 dark:border-blue-700/30">
               <FaSun className="text-lg md:text-xl text-amber-400" aria-hidden="true" />
               <p className="m-0 font-medium">Day</p>
             </span>
           ) : weather !== null && (
-            <span className="flex items-center justify-center gap-2 md:gap-3 p-2">
+            <span className="flex items-center justify-center gap-2 md:gap-3 p-2 text-blue-600 bg-blue-100/80 dark:text-blue-300 dark:bg-blue-900/40 rounded-full border border-blue-200/40 dark:border-blue-700/30">
               <FaMoon className="text-lg md:text-xl text-indigo-300" aria-hidden="true" />
               <p className="m-0 font-medium">Night</p>
             </span>
           )}
 
-          <span className="flex items-center justify-center gap-2 md:gap-3 p-2">
-            <GiHotSurface className="text-lg md:text-xl text-gray-300" aria-hidden="true" />
+          <span className="flex items-center justify-center gap-2 md:gap-3 p-2 text-blue-600 bg-blue-100/80 dark:text-blue-300 dark:bg-blue-900/40 rounded-full border border-blue-200/40 dark:border-blue-700/30">
+            <GiHotSurface className="text-lg md:text-xl text-blue-500 dark:text-blue-400" aria-hidden="true" />
             <p className="m-0 font-medium">{weather?.current.surface_pressure} {weather?.current_units.surface_pressure}</p>
           </span>
         </div>
