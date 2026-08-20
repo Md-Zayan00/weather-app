@@ -100,12 +100,17 @@ const CustomXAxisBottomTick = (propsB: any):JSX.Element => {
           <YAxis domain={['dataMin - 2','dataMax + 2']}
           hide={true}/>
 
-          <Tooltip />
+          <Tooltip 
+            contentStyle={{ backgroundColor: '#000', borderColor: '#000' }}
+            itemStyle={{ color: '#fff' }}
+            labelStyle={{ color: '#fff' }}
+          />
+
 
           <Line
             type="monotone"
             dataKey="temp"
-            stroke="#ffffff"
+            stroke="#cce2ff"
             strokeWidth={2}
             activeDot={{ r: 8 }}
           />

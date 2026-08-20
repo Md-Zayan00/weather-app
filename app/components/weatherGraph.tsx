@@ -69,7 +69,7 @@ export default function WeatherGraph(props: HourlyProps):JSX.Element {
     //Return the jsx elements
     return (
         <section>
-            <div className='bg-black/20 my-4 rounded-md' style={{ overflowX: 'auto', width: '100%' }}>
+            <div className='bg-slate-900/70 my-4 rounded-md' style={{ overflowX: 'auto', width: '100%' }}>
                 <LineChartComponent 
                 newData = {newHourlyData}
                 />
