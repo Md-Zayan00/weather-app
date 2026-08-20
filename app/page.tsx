@@ -125,7 +125,7 @@ export default function Home():JSX.Element {
       {loading && <LoadingPulse />}
 
       {/* Primary Weather & Date Split Section */}
-      <div className="mt-8 md:mt-12 md:flex md:items-center md:justify-between md:gap-8 bg-slate-800/20 md:bg-slate-800/30 rounded-2xl p-6 md:p-8 backdrop-blur-sm border border-white/5">
+      {weather && (<div className="mt-8 md:mt-12 md:flex md:items-center md:justify-between md:gap-8 bg-slate-800/20 md:bg-slate-800/30 rounded-2xl p-6 md:p-8 backdrop-blur-sm border border-white/5">
         {weather && (
           <section className="text-left flex justify-between items-center md:flex-row-reverse md:gap-6 w-full md:w-auto">
             <div>
@@ -147,7 +147,7 @@ export default function Home():JSX.Element {
             currentDate={currentTime[0]}
           />
         </div>
-      </div>
+      </div>)}
 
       {/* Secondary Metrics Bar */}
       {weather && (

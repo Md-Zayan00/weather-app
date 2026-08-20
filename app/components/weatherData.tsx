@@ -52,7 +52,7 @@ export interface WeatherInterface{
 }
 
 export async function WeatherData(lat:number, long:number): Promise<WeatherInterface | null>{
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_mean&hourly=temperature_2m,precipitation_probability&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code,is_day,apparent_temperature,surface_pressure,precipitation&past_days=7&forecast_days=1`
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_mean&hourly=temperature_2m,precipitation_probability&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code,is_day,apparent_temperature,surface_pressure,precipitation&timezone=auto&past_days=7&forecast_days=1`
     try{
         const response = await fetch(url)
 
