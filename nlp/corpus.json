@@ -1,0 +1,67 @@
+{
+  "name": "search-corpus",
+  "locale": "en",
+  "data": [
+    {
+      "intent": "search.location",
+      "utterances": [
+        "find me somewhere",
+        "find a place to go",
+        "where should I go",
+        "where can I go",
+        "find somewhere good for hiking",
+        "where can I go tonight",
+        "find me a place near Seattle",
+        "where should I go for stargazing",
+        "I want to find somewhere scenic",
+        "show me places I can visit",
+        "stargazing near Seattle",
+        "hiking near Seattle",
+        "quiet hiking spots",
+        "scenic places near Seattle",
+        "sunrise spots",
+        "sunset locations",
+        "good places for photography",
+        "places for stargazing",
+        "quiet places to visit",
+        "scenic places tonight",
+        "got anywhere good for stargazing tonight",
+        "got any ideas for places to visit",
+        "where can I go that's quiet",
+        "I want to get out somewhere"
+      ]
+    },
+    {
+      "intent": "None",
+      "utterances": [
+        "hello",
+        "how are you",
+        "what is your name",
+        "tell me a joke"
+      ]
+    }
+  ],
+  "entities": {
+    "activity": {
+      "options": {
+        "stargazing": ["stargazing", "star gazing", "watch the stars", "look at stars", "night sky", 
+        "see the night sky","watch the night sky", "look at the stars", "see the stars", "watch the stars", 
+        "astronomy", "look at constellations"],
+        "hiking": ["hiking", "hike", "go hiking", "trekking", "trek", "go trekking", "go for a trek", 
+        "trail walking", "walk a trail"],
+        "picnic": ["picnic", "go for a picnic"],
+        "photography": ["photography", "take photos", "taking pictures"],
+        "sunrise": ["sunrise", "watch the sunrise"],
+        "sunset": ["sunset", "watch the sunset"]
+      }
+    },
+    "preference": {
+      "options": {
+        "scenic": ["scenic", "beautiful", "pretty", "picturesque", "nice views"],
+        "quiet": ["quiet", "peaceful", "calm", "away from crowds"],
+        "remote": ["remote", "isolated", "away from people", "away from civilization", "far from civilization", 
+        "isolated", "away from people", "secluded"]
+      }
+    }
+  }
+}

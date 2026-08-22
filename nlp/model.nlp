@@ -1,0 +1,965 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "find,me,somewher": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "a,find,go,place,to": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "go,i,should,where": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "can,go,i,where": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "find,for,good,hike,somewher": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "can,go,i,tonight,where": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "a,find,me,near,place,seattl": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "for,go,i,should,stargaz,where": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "find,i,scenic,somewher,to,want": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "can,i,me,place,show,visit": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "near,seattl,stargaz": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "hike,near,seattl": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "hike,quiet,spot": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "near,place,scenic,seattl": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "spot,sunris": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "locat,sunset": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "for,good,photographi,place": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "for,place,stargaz": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "place,quiet,to,visit": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "place,scenic,tonight": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "anywher,for,good,got,stargaz,tonight": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "ani,for,got,idea,place,to,visit": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "can,go,i,is,quiet,that,where": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "get,i,out,somewher,to,want": {
+            "intent": "search.location",
+            "domain": "default"
+          },
+          "hello": {
+            "intent": "None",
+            "domain": "default"
+          },
+          "are,how,you": {
+            "intent": "None",
+            "domain": "default"
+          },
+          "is,name,what,your": {
+            "intent": "None",
+            "domain": "default"
+          },
+          "a,joke,me,tell": {
+            "intent": "None",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "search.location": "default",
+          "None": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "find me somewhere",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "find a place to go",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "where should I go",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "where can I go",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "find somewhere good for hiking",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "where can I go tonight",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "find me a place near Seattle",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "where should I go for stargazing",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "I want to find somewhere scenic",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "show me places I can visit",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "stargazing near Seattle",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "hiking near Seattle",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "quiet hiking spots",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "scenic places near Seattle",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "sunrise spots",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "sunset locations",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "good places for photography",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "places for stargazing",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "quiet places to visit",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "scenic places tonight",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "got anywhere good for stargazing tonight",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "got any ideas for places to visit",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "where can I go that's quiet",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "I want to get out somewhere",
+            "intent": "search.location"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "None"
+          },
+          {
+            "domain": "default",
+            "utterance": "how are you",
+            "intent": "None"
+          },
+          {
+            "domain": "default",
+            "utterance": "what is your name",
+            "intent": "None"
+          },
+          {
+            "domain": "default",
+            "utterance": "tell me a joke",
+            "intent": "None"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "find": 1,
+              "me": 1,
+              "somewher": 1,
+              "a": 1,
+              "place": 1,
+              "to": 1,
+              "go": 1,
+              "where": 1,
+              "should": 1,
+              "i": 1,
+              "can": 1,
+              "good": 1,
+              "for": 1,
+              "hike": 1,
+              "tonight": 1,
+              "near": 1,
+              "seattl": 1,
+              "stargaz": 1,
+              "want": 1,
+              "scenic": 1,
+              "show": 1,
+              "visit": 1,
+              "quiet": 1,
+              "spot": 1,
+              "sunris": 1,
+              "sunset": 1,
+              "locat": 1,
+              "photographi": 1,
+              "got": 1,
+              "anywher": 1,
+              "ani": 1,
+              "idea": 1,
+              "that": 1,
+              "is": 1,
+              "get": 1,
+              "out": 1,
+              "hello": 1,
+              "how": 1,
+              "are": 1,
+              "you": 1,
+              "what": 1,
+              "your": 1,
+              "name": 1,
+              "tell": 1,
+              "joke": 1
+            },
+            "intents": {
+              "search.location": 1,
+              "None": 1
+            },
+            "intentFeatures": {
+              "search.location": {
+                "find": 1,
+                "me": 1,
+                "somewher": 1,
+                "a": 1,
+                "place": 1,
+                "to": 1,
+                "go": 1,
+                "where": 1,
+                "should": 1,
+                "i": 1,
+                "can": 1,
+                "good": 1,
+                "for": 1,
+                "hike": 1,
+                "tonight": 1,
+                "near": 1,
+                "seattl": 1,
+                "stargaz": 1,
+                "want": 1,
+                "scenic": 1,
+                "show": 1,
+                "visit": 1,
+                "quiet": 1,
+                "spot": 1,
+                "sunris": 1,
+                "sunset": 1,
+                "locat": 1,
+                "photographi": 1,
+                "got": 1,
+                "anywher": 1,
+                "ani": 1,
+                "idea": 1,
+                "that": 1,
+                "is": 1,
+                "get": 1,
+                "out": 1
+              },
+              "None": {
+                "hello": 1,
+                "how": 1,
+                "are": 1,
+                "you": 1,
+                "what": 1,
+                "is": 1,
+                "your": 1,
+                "name": 1,
+                "tell": 1,
+                "me": 1,
+                "a": 1,
+                "joke": 1
+              }
+            },
+            "featuresToIntent": {
+              "find": [
+                "search.location"
+              ],
+              "me": [
+                "search.location",
+                "None"
+              ],
+              "somewher": [
+                "search.location"
+              ],
+              "a": [
+                "search.location",
+                "None"
+              ],
+              "place": [
+                "search.location"
+              ],
+              "to": [
+                "search.location"
+              ],
+              "go": [
+                "search.location"
+              ],
+              "where": [
+                "search.location"
+              ],
+              "should": [
+                "search.location"
+              ],
+              "i": [
+                "search.location"
+              ],
+              "can": [
+                "search.location"
+              ],
+              "good": [
+                "search.location"
+              ],
+              "for": [
+                "search.location"
+              ],
+              "hike": [
+                "search.location"
+              ],
+              "tonight": [
+                "search.location"
+              ],
+              "near": [
+                "search.location"
+              ],
+              "seattl": [
+                "search.location"
+              ],
+              "stargaz": [
+                "search.location"
+              ],
+              "want": [
+                "search.location"
+              ],
+              "scenic": [
+                "search.location"
+              ],
+              "show": [
+                "search.location"
+              ],
+              "visit": [
+                "search.location"
+              ],
+              "quiet": [
+                "search.location"
+              ],
+              "spot": [
+                "search.location"
+              ],
+              "sunris": [
+                "search.location"
+              ],
+              "sunset": [
+                "search.location"
+              ],
+              "locat": [
+                "search.location"
+              ],
+              "photographi": [
+                "search.location"
+              ],
+              "got": [
+                "search.location"
+              ],
+              "anywher": [
+                "search.location"
+              ],
+              "ani": [
+                "search.location"
+              ],
+              "idea": [
+                "search.location"
+              ],
+              "that": [
+                "search.location"
+              ],
+              "is": [
+                "search.location",
+                "None"
+              ],
+              "get": [
+                "search.location"
+              ],
+              "out": [
+                "search.location"
+              ],
+              "hello": [
+                "None"
+              ],
+              "how": [
+                "None"
+              ],
+              "are": [
+                "None"
+              ],
+              "you": [
+                "None"
+              ],
+              "what": [
+                "None"
+              ],
+              "your": [
+                "None"
+              ],
+              "name": [
+                "None"
+              ],
+              "tell": [
+                "None"
+              ],
+              "joke": [
+                "None"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "find",
+                "me",
+                "somewher",
+                "a",
+                "place",
+                "to",
+                "go",
+                "where",
+                "should",
+                "i",
+                "can",
+                "good",
+                "for",
+                "hike",
+                "tonight",
+                "near",
+                "seattl",
+                "stargaz",
+                "want",
+                "scenic",
+                "show",
+                "visit",
+                "quiet",
+                "spot",
+                "sunris",
+                "sunset",
+                "locat",
+                "photographi",
+                "got",
+                "anywher",
+                "ani",
+                "idea",
+                "that",
+                "is",
+                "get",
+                "out",
+                "hello",
+                "how",
+                "are",
+                "you",
+                "what",
+                "your",
+                "name",
+                "tell",
+                "joke"
+              ],
+              "intents": [
+                "search.location",
+                "None"
+              ],
+              "perceptrons": [
+                [
+                  1.4152939319610596,
+                  1.152856469154358,
+                  3.349238395690918,
+                  -4.38823938369751,
+                  5.520560264587402,
+                  1.066881537437439,
+                  2.333059072494507,
+                  1.8475732803344727,
+                  0.5650578141212463,
+                  0.8939721584320068,
+                  0.14999327063560486,
+                  0.6807305216789246,
+                  -3.4095194339752197,
+                  3.731915235519409,
+                  1.0038319826126099,
+                  0.9653878211975098,
+                  0.9653878211975098,
+                  3.6978559494018555,
+                  0.18488864600658417,
+                  -1.1451466083526611,
+                  -1.1305650472640991,
+                  -0.7401130795478821,
+                  -0.040761929005384445,
+                  2.198467969894409,
+                  3.5999224185943604,
+                  2.922645330429077,
+                  2.922645330429077,
+                  3.0483217239379883,
+                  2.206048011779785,
+                  1.628522276878357,
+                  0.5768821239471436,
+                  0.5768821239471436,
+                  1.5449734926223755,
+                  -0.9582909941673279,
+                  0.15599656105041504,
+                  0.15599656105041504,
+                  -8.430039405822754,
+                  -2.822979688644409,
+                  -2.822979688644409,
+                  -2.822979688644409,
+                  -2.50361704826355,
+                  -2.50361704826355,
+                  -2.50361704826355,
+                  -2.610443353652954,
+                  -2.610443353652954,
+                  8.481097268233516
+                ],
+                [
+                  -2.9687585830688477,
+                  0.7241593599319458,
+                  -1.957552433013916,
+                  2.3940069675445557,
+                  -2.463873863220215,
+                  -0.5332182049751282,
+                  -1.4107882976531982,
+                  -1.004622459411621,
+                  -0.3263518512248993,
+                  -1.4614242315292358,
+                  -1.0372124910354614,
+                  -0.6958134770393372,
+                  -0.8093679547309875,
+                  -1.053293228149414,
+                  -1.0562942028045654,
+                  -1.574428915977478,
+                  -1.574428915977478,
+                  -1.0532933473587036,
+                  -0.09498881548643112,
+                  -0.6819832921028137,
+                  -0.32519111037254333,
+                  -0.3623741567134857,
+                  -1.0940325260162354,
+                  -2.4277842044830322,
+                  -1.7743669748306274,
+                  -2.1010754108428955,
+                  -2.1010754108428955,
+                  -0.23309627175331116,
+                  -0.31366342306137085,
+                  -0.31366342306137085,
+                  0,
+                  0,
+                  -0.4085511565208435,
+                  2.214479684829712,
+                  -0.07748398184776306,
+                  -0.07748398184776306,
+                  10.08355712890625,
+                  3.3611879348754883,
+                  3.3611879348754883,
+                  3.3611879348754883,
+                  2.623028039932251,
+                  2.623028039932251,
+                  2.623028039932251,
+                  3.4826982021331787,
+                  3.4826982021331787,
+                  4.202151692866378
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "find me somewhere"
+      ],
+      [
+        "en",
+        "find a place to go"
+      ],
+      [
+        "en",
+        "where should I go"
+      ],
+      [
+        "en",
+        "where can I go"
+      ],
+      [
+        "en",
+        "find somewhere good for hiking"
+      ],
+      [
+        "en",
+        "where can I go tonight"
+      ],
+      [
+        "en",
+        "find me a place near Seattle"
+      ],
+      [
+        "en",
+        "where should I go for stargazing"
+      ],
+      [
+        "en",
+        "I want to find somewhere scenic"
+      ],
+      [
+        "en",
+        "show me places I can visit"
+      ],
+      [
+        "en",
+        "stargazing near Seattle"
+      ],
+      [
+        "en",
+        "hiking near Seattle"
+      ],
+      [
+        "en",
+        "quiet hiking spots"
+      ],
+      [
+        "en",
+        "scenic places near Seattle"
+      ],
+      [
+        "en",
+        "sunrise spots"
+      ],
+      [
+        "en",
+        "sunset locations"
+      ],
+      [
+        "en",
+        "good places for photography"
+      ],
+      [
+        "en",
+        "places for stargazing"
+      ],
+      [
+        "en",
+        "quiet places to visit"
+      ],
+      [
+        "en",
+        "scenic places tonight"
+      ],
+      [
+        "en",
+        "got anywhere good for stargazing tonight"
+      ],
+      [
+        "en",
+        "got any ideas for places to visit"
+      ],
+      [
+        "en",
+        "where can I go that's quiet"
+      ],
+      [
+        "en",
+        "I want to get out somewhere"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "how are you"
+      ],
+      [
+        "en",
+        "what is your name"
+      ],
+      [
+        "en",
+        "tell me a joke"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {
+      "en": {
+        "activity": {
+          "name": "activity",
+          "type": "enum",
+          "rules": [
+            {
+              "option": "stargazing",
+              "texts": [
+                "stargazing",
+                "star gazing",
+                "watch the stars",
+                "look at stars",
+                "night sky",
+                "see the night sky",
+                "watch the night sky",
+                "look at the stars",
+                "see the stars",
+                "watch the stars",
+                "astronomy",
+                "look at constellations"
+              ]
+            },
+            {
+              "option": "hiking",
+              "texts": [
+                "hiking",
+                "hike",
+                "go hiking",
+                "trekking",
+                "trek",
+                "go trekking",
+                "go for a trek",
+                "trail walking",
+                "walk a trail"
+              ]
+            },
+            {
+              "option": "picnic",
+              "texts": [
+                "picnic",
+                "go for a picnic"
+              ]
+            },
+            {
+              "option": "photography",
+              "texts": [
+                "photography",
+                "take photos",
+                "taking pictures"
+              ]
+            },
+            {
+              "option": "sunrise",
+              "texts": [
+                "sunrise",
+                "watch the sunrise"
+              ]
+            },
+            {
+              "option": "sunset",
+              "texts": [
+                "sunset",
+                "watch the sunset"
+              ]
+            }
+          ]
+        },
+        "preference": {
+          "name": "preference",
+          "type": "enum",
+          "rules": [
+            {
+              "option": "scenic",
+              "texts": [
+                "scenic",
+                "beautiful",
+                "pretty",
+                "picturesque",
+                "nice views"
+              ]
+            },
+            {
+              "option": "quiet",
+              "texts": [
+                "quiet",
+                "peaceful",
+                "calm",
+                "away from crowds"
+              ]
+            },
+            {
+              "option": "remote",
+              "texts": [
+                "remote",
+                "isolated",
+                "away from people",
+                "away from civilization",
+                "far from civilization",
+                "isolated",
+                "away from people",
+                "secluded"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {}
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

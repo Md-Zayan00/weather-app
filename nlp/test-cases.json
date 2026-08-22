@@ -1,0 +1,212 @@
+[
+  {
+    "category": "Basic & Activities",
+    "input": "Find me somewhere scenic for stargazing near Seattle",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["scenic", "stargazing"]
+  },
+  {
+    "category": "Basic & Activities",
+    "input": "I want to go hiking somewhere quiet",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["hiking", "quiet"]
+  },
+  {
+    "category": "Basic & Activities",
+    "input": "Looking for a good place for a picnic this weekend",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["picnic"]
+  },
+  {
+    "category": "Basic & Activities",
+    "input": "I'd like to take photos of the sunset somewhere scenic",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["photography", "sunset", "scenic"]
+  },
+  {
+    "category": "Basic & Activities",
+    "input": "Can you find me a spot to watch the sunrise tomorrow morning?",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["sunrise"]
+  },
+  {
+    "category": "Synonyms & Phrases",
+    "input": "I feel like looking at the stars tonight",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["stargazing"]
+  },
+  {
+    "category": "Synonyms & Phrases",
+    "input": "Where can I see the night sky around Kolkata?",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["stargazing"]
+  },
+  {
+    "category": "Synonyms & Phrases",
+    "input": "I want to go for a trek away from civilization",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["hiking", "remote"]
+  },
+  {
+    "category": "Synonyms & Phrases",
+    "input": "Show me places with picturesque views near New York",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["scenic"]
+  },
+  {
+    "category": "Preferences & Negation",
+    "input": "Find me a calm and peaceful area for stargazing",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["quiet", "stargazing"]
+  },
+  {
+    "category": "Preferences & Negation",
+    "input": "Take me somewhere remote and away from crowds",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["remote", "quiet"]
+  },
+  {
+    "category": "Preferences & Negation",
+    "input": "I don't want somewhere quiet",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["quiet"]
+  },
+  {
+    "category": "Preferences & Negation",
+    "input": "I don't care if it's scenic or not",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["scenic"]
+  },
+  {
+    "category": "Travel & Numbers",
+    "input": "Find somewhere within 2 hours of Seattle for stargazing",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["stargazing"]
+  },
+  {
+    "category": "Travel & Numbers",
+    "input": "I don't want to drive more than 90 minutes from Portland",
+    "expectedIntent": "search.location",
+    "expectedEntities": []
+  },
+  {
+    "category": "Travel & Numbers",
+    "input": "Keep it under an hour and a half drive",
+    "expectedIntent": "search.location",
+    "expectedEntities": []
+  },
+  {
+    "category": "Travel & Numbers",
+    "input": "Somewhere less than 50 kilometers away from Kolkata",
+    "expectedIntent": "search.location",
+    "expectedEntities": []
+  },
+  {
+    "category": "Travel & Numbers",
+    "input": "Find places within 100 miles of Mount Rainier",
+    "expectedIntent": "search.location",
+    "expectedEntities": []
+  },
+  {
+    "category": "Short & Messy Inputs",
+    "input": "stargazing near Seattle",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["stargazing"]
+  },
+  {
+    "category": "Short & Messy Inputs",
+    "input": "quiet hiking spots",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["hiking", "quiet"]
+  },
+  {
+    "category": "Short & Messy Inputs",
+    "input": "somewhere scenic tonight",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["scenic"]
+  },
+  {
+    "category": "Short & Messy Inputs",
+    "input": "got anywhere good for stargazing tonight?",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["stargazing"]
+  },
+  {
+    "category": "Short & Messy Inputs",
+    "input": "where can i go thats quiet",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["quiet"]
+  },
+  {
+    "category": "Conversational & Imperative",
+    "input": "I'm thinking about going hiking tomorrow morning",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["hiking"]
+  },
+  {
+    "category": "Conversational & Imperative",
+    "input": "give me a place for sunset near Seattle",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["sunset"]
+  },
+  {
+    "category": "Conversational & Imperative",
+    "input": "got any ideas for places to visit tonight?",
+    "expectedIntent": "search.location",
+    "expectedEntities": []
+  },
+  {
+    "category": "Conversational & Imperative",
+    "input": "I feel like going somewhere quiet and peaceful",
+    "expectedIntent": "search.location",
+    "expectedEntities": ["quiet"]
+  },
+  {
+    "category": "Non-Search & Negative Cases",
+    "input": "Hello how are you doing",
+    "expectedIntent": "None",
+    "expectedEntities": []
+  },
+  {
+    "category": "Non-Search & Negative Cases",
+    "input": "what is your name?",
+    "expectedIntent": "None",
+    "expectedEntities": []
+  },
+  {
+    "category": "Non-Search & Negative Cases",
+    "input": "tell me a joke",
+    "expectedIntent": "None",
+    "expectedEntities": []
+  },
+  {
+    "category": "Non-Search & Negative Cases",
+    "input": "What is the weather in Seattle right now?",
+    "expectedIntent": "None",
+    "expectedEntities": []
+  },
+  {
+    "category": "Non-Search & Negative Cases",
+    "input": "Will it rain tomorrow in Kolkata?",
+    "expectedIntent": "None",
+    "expectedEntities": []
+  },
+  {
+    "category": "Non-Search & Negative Cases",
+    "input": "How hot is New York today?",
+    "expectedIntent": "None",
+    "expectedEntities": []
+  },
+  {
+    "category": "Non-Search & Negative Cases",
+    "input": "can you help me write an email?",
+    "expectedIntent": "None",
+    "expectedEntities": []
+  },
+  {
+    "category": "Non-Search & Negative Cases",
+    "input": "what is 2 + 2",
+    "expectedIntent": "None",
+    "expectedEntities": []
+  }
+]
