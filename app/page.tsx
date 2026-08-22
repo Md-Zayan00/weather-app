@@ -20,6 +20,7 @@ import LoadingPulse from "./components/loading"
 import WeekReport from "./components/weekReport"
 import { DailyInterface } from "./components/weekReport"
 import Comments from "./components/comments"
+import { TiWeatherSunny } from "react-icons/ti"
 
 //export function as a default to be rendered
 export default function Home():JSX.Element {
@@ -91,6 +92,10 @@ export default function Home():JSX.Element {
   return (
   <main className="min-h-screen py-6 md:py-12 px-4 md:px-8">
     <section className="max-w-4xl lg:max-w-6xl mx-auto text-center">
+    <div className="flex justify-center items-center gap-1 text-3xl md:text-4xl lg:text-5xl pt-4">
+      <TiWeatherSunny className="text-5xl md:text-6xl lg:text-7xl text-amber-200 animate-[spin_19s_linear_infinite]" aria-hidden="true" />
+      <h1 className="m-0 pt-1 p-0 font-extrabold text-blue-100">AETHER AI</h1>
+    </div>
       {/* Header / Title */}
       <div className="flex justify-center items-center gap-2 text-sm md:text-xl lg:text-2xl pt-4">
         <MdOutlineShareLocation className="text-xl md:text-2xl lg:text-3xl" aria-hidden="true" />
